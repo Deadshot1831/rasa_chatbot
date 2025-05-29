@@ -17,8 +17,4 @@ A conversational AI chatbot built using [Rasa](https://rasa.com/) to promote men
 - [Rasa Open Source](https://rasa.com/)
 - Python 3.8+
 - YAML for NLU, Domain, and Stories
-- (Optional) SQLite / MongoDB for storing logs
-- (Optional) Frontend via Rasa Webchat / Telegram / WhatsApp
-
-## 📁 Project Structure
-
+- (Optional) Frontend via Python
