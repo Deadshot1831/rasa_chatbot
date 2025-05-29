@@ -1,20 +1,68 @@
-# 🧠 Mental Well-Being Chatbot
+# Mental Well-Being Chatbot
 
-A conversational AI chatbot built using [Rasa](https://rasa.com/) to promote mental well-being by engaging users in supportive dialogue, tracking their mood, and offering resources or exercises.
+A conversational AI assistant designed to promote mental well-being using Rasa for natural language understanding and dialogue management. The bot supports features like mood tracking, journaling, motivational quotes, and coping strategies. It is integrated with a Python frontend (e.g., Flask or FastAPI) for a web interface.
 
-## 💡 Features
+---
 
-- Mood check-ins with personalized responses
+##  Features
+
+- Daily mood check-ins
 - Guided journaling prompts
-- Breathing and relaxation techniques
+- Mindfulness & breathing exercises
 - Motivational quotes
-- Crisis support recommendations
-- Conversation history tracking (optional)
-- Custom actions with Python
+- Crisis support messages
+- Custom actions for personalized experiences
 
-## 🛠 Tech Stack
+---
 
-- [Rasa Open Source](https://rasa.com/)
-- Python 3.8+
-- YAML for NLU, Domain, and Stories
-- (Optional) Frontend via Python
+## Tech Stack
+
+- **Backend**: [Rasa](https://rasa.com/)
+- **Frontend**: Flask / FastAPI (Python)
+---
+
+## Project Structure
+mental-wellbeing-chatbot/
+├── actions/ # Custom actions (Python)
+│ └── actions.py
+├── app/ # Frontend (Flask/FastAPI app)
+│ ├── templates/
+│ ├── static/
+│ └── main.py
+├── data/ # Training data
+│ ├── nlu.yml
+│ ├── rules.yml
+│ └── stories.yml
+├── models/ # Rasa trained models
+├── domain.yml # Intents, responses, entities, etc.
+├── config.yml # Rasa NLU pipeline
+├── credentials.yml # Channel creds (for REST, etc.)
+├── endpoints.yml # Action server config
+├── requirements.txt
+└── README.md
+
+## How to Run 
+
+### 1. Clone the Repository
+git clone https://github.com/Deadshot1831/rasa_chatbot
+cd rasa_chatbot
+
+### 2. Create a Virtual Environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+### 3. Install Dependencies
+pip install -r requirements.txt
+### 4. Train the Rasa Model
+rasa train
+
+### 5. Start the Rasa Servers
+Run the action server:
+rasa run actions
+Run the Rasa shell or HTTP API:
+rasa run --enable-api --cors "*" --debug
+### 6. Start the Frontend Server
+If using Flask:
+cd app
+python main.py
+Your chatbot UI will be available at: http://localhost:5000
