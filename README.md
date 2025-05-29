@@ -21,30 +21,11 @@ A conversational AI assistant designed to promote mental well-being using Rasa f
 - **Frontend**: Flask / FastAPI (Python)
 ---
 
-## Project Structure
-mental-wellbeing-chatbot/
-├── actions/ # Custom actions (Python)
-│ └── actions.py
-├── app/ # Frontend (Flask/FastAPI app)
-│ ├── templates/
-│ ├── static/
-│ └── main.py
-├── data/ # Training data
-│ ├── nlu.yml
-│ ├── rules.yml
-│ └── stories.yml
-├── models/ # Rasa trained models
-├── domain.yml # Intents, responses, entities, etc.
-├── config.yml # Rasa NLU pipeline
-├── credentials.yml # Channel creds (for REST, etc.)
-├── endpoints.yml # Action server config
-├── requirements.txt
-└── README.md
-
 ## How to Run 
 
 ### 1. Clone the Repository
 git clone https://github.com/Deadshot1831/rasa_chatbot
+
 cd rasa_chatbot
 
 ### 2. Create a Virtual Environment
