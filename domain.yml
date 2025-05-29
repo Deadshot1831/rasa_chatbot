@@ -1,0 +1,121 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - express_positive_mood
+  - express_negative_mood
+  - ask_for_motivation
+  - breathing_exercise_request
+  - thank
+  - bot_challenge
+
+entities: []
+
+slots:
+  user_mood:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+
+  mood_confidence:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  last_motivation:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+responses:
+
+  # 🔹 GREETINGS
+  utter_greet:
+    - text: "Hello there! 👋 How are you feeling today?"
+    - text: "Hey! I'm here to support you. Tell me how you’re doing. 🌼"
+    - text: "Hi! Let's check in—how's your heart today?"
+    - text: "Welcome back! How are you holding up today?"
+    - text: "It’s good to see you again. Ready for a little support? 💫"
+
+  # 🔹 GOODBYE
+  utter_goodbye:
+    - text: "Take care of yourself. 🌟 I'm always here if you need to talk."
+    - text: "Goodbye for now. Sending you peace and strength. 💙"
+    - text: "See you soon! And remember to breathe. 🧘‍♂️"
+    - text: "Logging off? Be kind to yourself today. 💖"
+    - text: "Wishing you calm and comfort. Until next time. 🌙"
+
+  # 🔹 POSITIVE MOOD RESPONSES
+  utter_respond_positive:
+    - text: "That’s so good to hear! Keep shining. 🌞"
+    - text: "Love the positive vibes! Let’s keep the good energy going. 💪"
+    - text: "I'm happy to hear that! Stay grounded and grateful. 🙏"
+    - text: "That’s amazing! Always celebrate your joy. 🌈"
+    - text: "Your energy is radiant—keep it up! 🌟"
+
+  # 🔹 NEGATIVE MOOD RESPONSES
+  utter_respond_negative:
+    - text: "It’s okay not to be okay. I’m here with you. 💙"
+    - text: "I'm sorry you're feeling this way. Want to try a breathing exercise?"
+    - text: "You're not alone. Let’s take a calming moment together. 🤗"
+    - text: "Take your time—I'm here for you no matter what. 💜"
+    - text: "Your feelings are valid. Let’s work through them together. 🫂"
+
+  # 🔹 MOTIVATIONAL SUPPORT
+  utter_offer_motivation:
+    - text: "You’ve got this. Even the darkest night will end, and the sun will rise. ☀️"
+    - text: "Here’s a quote for you: *'You are stronger than you think.'* 💪"
+    - text: "Remember: *You’ve survived 100% of your worst days.* Keep going. ❤️"
+    - text: "Don’t give up. Great things take time. I believe in you. 🌱"
+    - text: "*'Difficult roads often lead to beautiful destinations.'* Stay strong. 💫"
+    - text: "*'Breathe. Trust. Let go. And just watch what comes next.'* 🌿"
+
+  # 🔹 BREATHING EXERCISE
+  utter_breathing_intro:
+    - text: "Let’s do a simple breathing exercise. Ready? Inhale deeply... hold... and exhale slowly. 🫁"
+    - text: "Okay, let’s calm things down. Breathe in for 4… hold for 4… exhale for 4. Let’s go together. 🌬️"
+    - text: "Breathe with me: Inhale through your nose… hold… exhale through your mouth. Do it a few times. 🧘"
+    - text: "Let's pause and focus on your breath. You’re safe here. 🕊️"
+    - text: "Close your eyes if you’d like—inhale calm, exhale tension. You’re doing great. 🌌"
+
+  # 🔹 GRATITUDE
+  utter_thank:
+    - text: "You're very welcome. I'm here for you anytime. 🤝"
+    - text: "Happy to help. You’re not alone. 🌈"
+    - text: "Thank *you* for trusting me. You're doing your best, and that matters. 💖"
+    - text: "Always here to support you. Grateful for you too. ✨"
+    - text: "It means a lot that you’re here and talking. 💬"
+
+  # 🔹 BOT CHALLENGE
+  utter_bot_challenge:
+    - text: "Yes, I’m a chatbot designed to support your mental wellness. 🤖"
+    - text: "I’m your virtual well-being assistant—always here to listen and help. 💬"
+    - text: "I may be a bot, but I care about how you're doing. 💙"
+
+  # 🔹 IAMABOT fallback
+  utter_iamabot:
+    - text: "Yes, I’m a bot created to support your mental health journey. 🤖"
+
+actions:
+  - action_motivate_user
+  - action_guide_breathing
+  - action_store_mood
+  - action_daily_quote
+  - action_ask_mood_scale
+  - action_suggest_self_care
+  - action_journal_entry
+  - action_check_in_later
+  - action_log_reflection
+  - action_share_breathing_video
+
+forms: {}
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
